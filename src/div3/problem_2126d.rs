@@ -3,6 +3,7 @@
 use std::cmp::Ordering;
 use std::convert::TryFrom;
 use std::io::stdin;
+#[cfg(feature = "not_codeforces")]
 use tracing::debug;
 
 fn take_int() -> usize {
@@ -45,12 +46,12 @@ fn solve_impl() {
     let [n_casinos, n_coins] = <[usize; 2]>::try_from(take_vector()).unwrap();
     let mut data_casino = Vec::new();
 
+    #[cfg(feature = "not_codeforces")]
     tracing::debug!("n_casinos: {n_casinos}, n_coins: {n_coins}");
-    // println!("n_casinos: {n_casinos}, n_coins: {n_coins}");
 
     for _ in 0..n_casinos {
         let [l, r, real] = <[usize; 3]>::try_from(take_vector()).unwrap();
-        // println!("l: {l}, r: {r}, real: {real}");
+        #[cfg(feature = "not_codeforces")]
         tracing::debug!("l: {l}, r: {r}, real: {real}");
 
         if real < n_coins {
@@ -65,13 +66,7 @@ fn solve_impl() {
         v => v,
     });
 
-    // #[cfg(debug_assertions)]
-    // {
-    //     for datum in &data_casino {
-    //         tracing::debug!("{:?}", datum);
-    //     }
-    // }
-
+    #[cfg(feature = "not_codeforces")]
     tracing::debug!("{:?}", data_casino);
 
     let mut total_coins = n_coins;
