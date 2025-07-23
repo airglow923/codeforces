@@ -1,1 +1,1 @@
-pub mod problem_2126d;
+automod::dir!(pub "src/div3");
