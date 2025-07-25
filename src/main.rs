@@ -18,5 +18,5 @@ fn main() {
             .init();
     }
 
-    div3::problem_2126b::solve();
+    div3::problem_2126c::solve();
 }
